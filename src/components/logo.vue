@@ -97,7 +97,7 @@
     </v-toolbar>-->
     <v-toolbar class="hidden-sm-and-down toolbarTabs">
       <v-toolbar-items>
-        <div v-for="(item, i) in items" :key="i">
+        <div v-for="(item, i) in menuItems" :key="i">
           <v-menu
             v-if="item.subMenuItem"
             open-on-hover
@@ -124,9 +124,9 @@
               no-action
             >
               <template v-slot:activator>
-                <v-list-tile>
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{ subItem.text }}</v-list-tile-title>
+                <v-list-tile  link @click="$router.push({ path: subItem.subLinkItem })">
+                  <v-list-tile-content >
+                  <v-list-tile-title>{{ subItem.text }}</v-list-tile-title>
                   </v-list-tile-content>
                 </v-list-tile>
               </template>
@@ -154,9 +154,9 @@
             -->
           </v-menu>
 
-          <v-btn v-else depressed v-on="on" height="100%">
+          <v-btn class="btnMainTab" v-else depressed v-on="on" height="100%">
             <v-icon v-if="item.icon">{{ item.icon }}</v-icon>
-            {{ item.title }}
+            <h3>{{ item.title }}</h3>
           </v-btn>
         </div>
       </v-toolbar-items>
@@ -213,7 +213,7 @@
 
       <v-list>
         <v-list-group
-          v-for="(item, i) in items"
+          v-for="(item, i) in menuItems"
           :key="i"
           class="itemTitle"
           active-class="highlighted"
@@ -244,120 +244,19 @@ export default {
   data() {
     return {
       drawer: null,
-
-      items: [
-        {
-          title: "الرئيسيه",
-          icon: "home",
-          link: "/",
-        },
-        {
-          title: "عن الشركه",
-         subMenuItem: [
-            { text: "نبذة عن الشركة", subLinkItem: "/aboutTheCompany" },
-            { text: "تاريخ تطور قطاع المياه", subLinkItem: "/about" },
-            { text: "فروع الشركه", subLinkItem: "/aboutTheCompany" },
-            { text: "الرؤيه و الرساله", subLinkItem: "/aboutTheCompany" },
-            { text: "الهيكل التنظيمي", subLinkItem: "/aboutTheCompany" },
-            { text: "إنجازات الشركة", subLinkItem: "/aboutTheCompany" },
-            {text: "الشركه القابضه والشركات التابعه",subLinkItem: "/aboutTheCompany",},
-          ],
-        },
-        {
-          title: "التوعيه وخدمه العملاء",
-          active: true,
-          subMenuItem: [
-            { text: "التوعيه و الأتصال", subLinkItem: "" },
-            { text: "ركن الأطفال", subLinkItem: "" },
-            { text: "لك سيدتي", subLinkItem: "" },
-          ],
-        },
-        {
-          title: "جوده المياه",
-          active: false,
-
-          subMenuItem: [
-            { text: "جوده المياه", subLinkItem: "" },
-            { text: "تنقيه مياه الشرب", subLinkItem: "" },
-            { text: " معالجه مياه الصرف الصحي", subLinkItem: "" },
-          ],
-        },
-        {
-          title: "المناقصات",
-          active: true,
-          subMenuItem: [
-            {
-              text: " إحلال وتجديد شبكات المياه علي مستوي محافظه الوادي الجديد",
-              subLinkItem: "",
-            },
-            { text: "توريد طلمبات اعماق غاطسه ", subLinkItem: "" },
-            { text: "شبكات مدنيه باريس بالوادي الجديد", subLinkItem: "" },
-            { text: "صرف صحي أبوتيج", subLinkItem: "" },
-            { text: "صرف صحي البداري", subLinkItem: "" },
-            { text: "عمليه إحلال و تجديد الداخليه", subLinkItem: "" },
-            { text: "عمليه احلال و تجديد طرد ", subLinkItem: "" },
-            {
-              text: "عمليه احلال و تجديد شبكات المياعلي مستوي محافظه اسيوط ",
-              subLinkItem: "",
-            },
-          ],
-        },
-        {
-          title: "الصرف الصحي",
-          active: true,
-          subMenuItem: [
-            { text: "معالجه الصرف الصحي", subLinkItem: "" },
-            {
-              text: "تعريف بأهميه التخلص الاَمن من الصرف الصحي",
-              subLinkItem: "",
-            },
-            { text: "مسار مياه الصرف الصحي ", subLinkItem: "" },
-            {
-              text: "معالجه الصرف الصحي الخام و أنواع محطات المعالجه",
-              subLinkItem: "",
-            },
-            { text: "صرف صحي البداري", subLinkItem: "" },
-            { text: "أهميه الحفاظ علي شبكه الصرف الصحي ", subLinkItem: "" },
-            { text: "دور إداره الصرف الصناعي", subLinkItem: "" },
-            { text: " الصرف الصناعي", subLinkItem: "" },
-          ],
-        },
-        {
-          title: "وظائف",
-          active: true,
-          subMenuItem: [
-            { text: "مسابقات و وظائف", subLinkItem: "" },
-            { text: "نتائج المسابقات", subLinkItem: "" },
-          ],
-        },
-        {
-          title: "خدمات",
-          active: true,
-          subMenuItem: [
-            { text: "خدمات المعامل", subLinkItem: "" },
-            { text: "الخط الساخن", subLinkItem: "" },
-            { text: " خدمه العملاء", subLinkItem: "" },
-          ],
-        },
-
-        {
-          title: "المركز الأعلامي",
-          active: true,
-          subMenuItem: [
-            { text: "أخبار الشركه", subLinkItem: "" },
-            { text: "معرض الصور", subLinkItem: "" },
-          ],
-        },
-      ],
-    };
+    }
   },
   methods:{
   
   },
   computed: {
     social_media() {
-      return this.$store.state.social_media;
+      return this.$store.state.social_media
     },
+    menuItems()
+    {
+      return this.$store.state.menuItems
+    }
   },
 };
 </script>
@@ -407,5 +306,13 @@ export default {
 }
 .removeTextDecoration {
   text-decoration: none !important;
+}
+.btnTextTab{
+  font-weight: bold;
+}
+.btnMainTab
+{
+  font-weight: bold;
+  color: green;
 }
 </style>

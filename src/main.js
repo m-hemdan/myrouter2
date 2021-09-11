@@ -6,16 +6,24 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import Vuetify from 'vuetify/lib'
 import globalCss from './assets/global.css'
 import Vuex from 'vuex'
-import Geolocaion from 'vue-browser-geolocation'
 import {store} from './store/store.js'
+import scrollAnimation from './assets/scrollAnimation'
 import * as VueGoogleMaps from 'vue2-google-maps'
+import VueSimpleAlert from "vue-simple-alert";
+import VueResponsiveImage from "vue-responsive-image";
+
+Vue.directive('scrollAnimation',scrollAnimation)
+Vue.use(VueSimpleAlert);
 Vue.use(Vuex)
-Vue.use(Geolocaion)
-Vue.use(VueGoogleMaps,{
-  load:{
-    key:''
+Vue.use(VueResponsiveImage)
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyC6N81D44KeKeXUti43nj8IBcun4vbyJ4o',
+    libraries: 'places',
   }
-})
+});
+
+
 Vue.config.productionTip = false
 
 new Vue({

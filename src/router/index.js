@@ -22,11 +22,43 @@ const routes = [
     component:()=>import('../views/contact.vue')
   },
   {
-    path:'/aboutTheCompany',
-    name:'aboutcompany',
+    path:'/AnElsherka',
+    name:'aboutThecompany',
     component:()=>import('../views/ToolbarTabs/AnElsherka.vue')
 
+  },
+  {
+    path:'/birthOfCompany',
+    name:'birthOfCompany',
+    component:()=>import('../views/ToolbarTabs/birthOfCompany.vue')
+  },
+  {
+    path:'/BranchOFCompany',
+    name:'BranchOfCompany',
+    component:()=>import('../views/ToolbarTabs/branchOfCompany.vue')
+
+  },
+  {
+    path:'/visionAndMessage',
+    name:'visionAndMessage',
+    component:()=>import('../views/ToolbarTabs/VisionAndMessage.vue')
   }
+  ,
+  {
+    path:'/organizationStructure',
+    name:'organizationStructure',
+    component:()=>import('../views/ToolbarTabs/OrganizationStructure.vue')
+  },
+  {
+    path:'/companyAchivement',
+    name:'companyAchivement',
+    component:()=>import('../views/ToolbarTabs/companyAchivement.vue')
+  }
+ /* {
+    path: '/:catchAll(.*)*',
+    name: "PageNotFound",
+    component: PageNotFound,
+  },*/
 ]
 
 const router = new VueRouter({

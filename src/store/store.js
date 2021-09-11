@@ -4,6 +4,111 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 export const store = new Vuex.Store({
     state: {
+      
+     menuItems: [
+        {
+          title: "الرئيسيه",
+          icon: "home",
+          link: "/",
+        },
+        {
+          title: "عن الشركه",
+         subMenuItem: [
+            { text: "نبذة عن الشركة", subLinkItem: "/AnElsherka", },
+            { text: "قرار إنشاء الشركة", subLinkItem: "/birthOfCompany" },
+            { text: "فروع الشركه", subLinkItem: "/branchOfCompany" },
+            { text: "الرؤيه والرساله", subLinkItem: "/visionAndMessage" },
+            { text: "الهيكل التنظيمي", subLinkItem: "/organizationStructure" },
+            { text: "إنجازات الشركة", subLinkItem: "/companyAchivement" },
+            {text: "الشركه القابضه والشركات التابعه",subLinkItem: "/aboutTheCompany",},
+          ],
+        },
+        {
+          title: "التوعيه وخدمه العملاء",
+          active: true,
+          subMenuItem: [
+            { text: "التوعيه و الأتصال", subLinkItem: "" },
+            { text: "ركن الأطفال", subLinkItem: "" },
+            { text: "لك سيدتي", subLinkItem: "" },
+          ],
+        },
+        {
+          title: "جوده المياه",
+          active: false,
+
+          subMenuItem: [
+            { text: "جوده المياه", subLinkItem: "" },
+            { text: "تنقيه مياه الشرب", subLinkItem: "" },
+            { text: " معالجه مياه الصرف الصحي", subLinkItem: "" },
+          ],
+        },
+        {
+          title: "المناقصات",
+          active: true,
+          subMenuItem: [
+            {
+              text: " إحلال وتجديد شبكات المياه علي مستوي محافظه الوادي الجديد",
+              subLinkItem: "",
+            },
+            { text: "توريد طلمبات اعماق غاطسه ", subLinkItem: "" },
+            { text: "شبكات مدنيه باريس بالوادي الجديد", subLinkItem: "" },
+            { text: "صرف صحي أبوتيج", subLinkItem: "" },
+            { text: "صرف صحي البداري", subLinkItem: "" },
+            { text: "عمليه إحلال و تجديد الداخليه", subLinkItem: "" },
+            { text: "عمليه احلال و تجديد طرد ", subLinkItem: "" },
+            {
+              text: "عمليه احلال و تجديد شبكات المياعلي مستوي محافظه اسيوط ",
+              subLinkItem: "",
+            },
+          ],
+        },
+        {
+          title: "الصرف الصحي",
+          active: true,
+          subMenuItem: [
+            { text: "معالجه الصرف الصحي", subLinkItem: "" },
+            {
+              text: "تعريف بأهميه التخلص الاَمن من الصرف الصحي",
+              subLinkItem: "",
+            },
+            { text: "مسار مياه الصرف الصحي ", subLinkItem: "" },
+            {
+              text: "معالجه الصرف الصحي الخام و أنواع محطات المعالجه",
+              subLinkItem: "",
+            },
+            { text: "صرف صحي البداري", subLinkItem: "" },
+            { text: "أهميه الحفاظ علي شبكه الصرف الصحي ", subLinkItem: "" },
+            { text: "دور إداره الصرف الصناعي", subLinkItem: "" },
+            { text: " الصرف الصناعي", subLinkItem: "" },
+          ],
+        },
+        {
+          title: "وظائف",
+          active: true,
+          subMenuItem: [
+            { text: "مسابقات و وظائف", subLinkItem: "" },
+            { text: "نتائج المسابقات", subLinkItem: "" },
+          ],
+        },
+        {
+          title: "خدمات",
+          active: true,
+          subMenuItem: [
+            { text: "خدمات المعامل", subLinkItem: "" },
+            { text: "الخط الساخن", subLinkItem: "" },
+            { text: " خدمه العملاء", subLinkItem: "" },
+          ],
+        },
+
+        {
+          title: "المركز الأعلامي",
+          active: true,
+          subMenuItem: [
+            { text: "أخبار الشركه", subLinkItem: "" },
+            { text: "معرض الصور", subLinkItem: "" },
+          ],
+        },
+      ],
         items: [
             {
               src: require("@/assets/Images/3.png"),
@@ -151,6 +256,23 @@ export const store = new Vuex.Store({
           srcmedia: require("@/assets/youtube.svg"),
         },
       ],
+      branchOfCompany:[
+        {id:1,nameOfBranch:'فرع الرئيسي ',phone:"088-2131662 ",address:"محطه مياه المرشحه بنزله عباللاه- اسيوط",img:'',center:{lat:'27.222235281679712',long:'31.194109557433396'}},
+        {id:1,nameOfBranch:'فرع منطقه ديروط ',phone:"088-2131662",address:"شارع البحر الاعظم ",img:'',center:{lat:'27.222235281679712',long:'31.194109557433396'}},
+        {id:2,nameOfBranch:'فرع منطقه القوصية ',phone:"088-2131662",address:"منطقة حسيب - امام المرور القديم",img:'',center:{lat:'27.222235281679712',long:'31.194109557433396'}},
+        {id:3,nameOfBranch:'فرع منطقه منفلوط ',phone:"088-2131662",address:"شارع جسر ابومنديل - بجوار المعهد الديني ",img:'',center:{lat:'27.222235281679712',long:'31.194109557433396'}},
+        {id:4,nameOfBranch:'فرع مركز أسيوط ',phone:"088-2131662",address:"شارع الجمهوريه خلف فندق الوطنيه ",img:'',lat:'27.222235281679712',long:'31.194109557433396'},
+        {id:5,nameOfBranch:'فرع شرق أسيوط ',phone:"088-2131662",address:"شارع الهلالي امام مديرية الاسكان ",img:'',lat:'27.222235281679712',long:'31.194109557433396'},
+        {id:6,nameOfBranch:'فرع غرب أسيوط ',phone:"088-2131662",address:"شارع 23 يوليو خلف بنك ناصر ",img:'',lat:'27.222235281679712',long:'31.194109557433396'},
+        {id:7,nameOfBranch:'فرع أبنوب  ',phone:"088-2131662",address:"شارع الصيانة بجوار المخبز الالى ",img:'',lat:'27.222235281679712',long:'31.194109557433396'},
+        {id:8,nameOfBranch:'فرع مركز الفتح  ',phone:"088-2131662",address:"الناصريه أمام مركز الشرطة",img:'',lat:'27.222235281679712',long:'31.194109557433396'},
+        {id:9,nameOfBranch:'فرع مركز البداري ',phone:"088-2131662",address:"شارع جمال عبدالناصر امام السجل المدنى ",img:'',lat:'27.222235281679712',long:'31.194109557433396'},
+        {id:10,nameOfBranch:'فرع مركز الغنايم ',phone:"088-2131662 ",address:"محطه مياه شرق السوهاجيه ",img:'',lat:'27.222235281679712',long:'31.194109557433396'},
+        {id:11,nameOfBranch:'فرع مركز أبوتيج ',phone:"088-2131662",address:"شارع المحطه البحريه امام المحكمة ",img:'',lat:'27.222235281679712',long:'31.194109557433396'},
+        {id:12,nameOfBranch:'فرع مركز صدفه ',phone:"088-2131662",address:"شارع المحطه البحريه امام الصيانة",img:'',lat:'27.222235281679712',long:'31.194109557433396'}
+        
+      ],
+     
     },
     mutations:{
       getArrItem: (state) => (id) => {
@@ -163,6 +285,7 @@ export const store = new Vuex.Store({
         return state.arrayMsg
       })
     }
+
    
     
     
