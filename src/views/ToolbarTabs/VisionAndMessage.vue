@@ -2,7 +2,7 @@
       <div>
       
   
-      <div class="title "> <h2 class="mx-auto">الــرؤيـة والـرسـالـة والقــيـم</h2></div>
+      <div class="title "> <h3 class="mx-auto">الــرؤيـة والـرسـالـة والقــيـم</h3></div>
       <v-divider></v-divider>
       
         <v-flex class="container ">
@@ -36,16 +36,10 @@ export default {
 }
 </script>
 <style>
-h1{
+h1,h2{
      color: #1f659b;
    font-family:sans-serif;
 }
-h2{
-   color: #1f659b;
-   font-family:sans-serif;
-   
-}
-
 h4{
     font-size: 1.2em;
 }

@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div class="aboutOurCompany">
-      <div class="title ">  <h1 >إنجـازات الشـركـة</h1></div>
+    <div >
+      <div class="title ">  <h3 >إنجـازات الشـركـة</h3></div>
       <v-divider></v-divider>
       <v-container>
         <v-row>
@@ -49,8 +49,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+   color: #2c3e50;
  
 }
 h1{

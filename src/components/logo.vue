@@ -1,7 +1,14 @@
 <template>
   <nav>
     <!-- first app bar in web page by logo and social media -->
-    <v-toolbar color="#1f659b" class="hidden-sm-and-down" max-height="65px">
+    
+    <v-toolbar
+      dense
+      
+      color="#1f659b"
+      class="hidden-sm-and-down xz"
+      max-height="65px"
+    >
       <v-toolbar-title>
         <span>
           <v-img
@@ -18,87 +25,19 @@
           <v-icon class="iconContact" color="white">phone</v-icon>
         </router-link>
         <router-link to="/contact" class="removeTextDecoration">
-          <v-icon class="iconContact" color="white"
-            >mail</v-icon
-          ></router-link
+          <v-icon class="iconContact" color="white">mail</v-icon></router-link
         >
       </span>
     </v-toolbar>
-  <!--  <v-toolbar class="hidden-sm-and-down toolbarTabs">
-      <v-toolbar-items>
-        <div v-for="(item, i) in items" :key="i">
-          <v-menu
-            v-if="item.subMenuItem"
-            open-on-hover
-            offset-y
-            transition="fab-transition"
-           
-          >
-            <template v-slot:activator="{ on }">
-              <v-btn class="no-active" depressed v-on="on" height="100%">
-                <v-icon v-if="item.icon" class="blue--text">{{
-                  item.icon
-                }}</v-icon>
-                <span class="btnTextTab">{{ item.title }}</span>
-                <v-icon class="blue--text" center>call-made</v-icon>
-              </v-btn>
-            </template>
-
-            <v-list>
-            <v-list-group
-              v-for="item in items"
-              :key="item.title"
-              v-model="item.active"
-              :prepend-icon="item.action"
-              no-action
-            >
-              <template v-slot:activator>
-                <v-list-tile>
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-              </template>
-
-              <v-list-tile
-                v-for="subItem in item.items"
-                :key="subItem.title"
-               
-              >
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
-                </v-list-tile-content>
-
-                <v-list-tile-action>
-                  <v-icon>{{ subItem.action }}</v-icon>
-                </v-list-tile-action>
-              </v-list-tile>
-            </v-list-group>
-          </v-list>
-          </v-menu>
-
-          <v-btn v-else depressed v-on="on" height="100%" :to="item.link">
-          <v-icon v-if="item.icon">{{ item.icon }}</v-icon>
-            {{ item.title }} 
-          </v-btn>
-        </div>
-      </v-toolbar-items>
-      <v-spacer></v-spacer>
-      <div class="d-flex social_media_color">
-        <v-tooltip bottom v-for="(item, i) in social_media" :key="i">
-          <template v-slot:activator="{ on }">
-            <a :href="item.link">
-              <img :src="item.srcmedia" class="ma-1" width="30vh" v-on="on"
-            /></a>
-          </template>
-          <span>{{ item.name }}</span>
-        </v-tooltip>
-      </div>
-    </v-toolbar>-->
-    <v-toolbar class="hidden-sm-and-down toolbarTabs">
+    
+    
+    
+    <v-toolbar  class="hidden-sm-and-down toolbarTabs">
       <v-toolbar-items>
         <div v-for="(item, i) in menuItems" :key="i">
           <v-menu
+         
+       
             v-if="item.subMenuItem"
             open-on-hover
             offset-y
@@ -107,7 +46,7 @@
             right
           >
             <template v-slot:activator="{ on }">
-              <v-btn class="no-active" depressed v-on="on" height="100%">
+              <v-btn class="no-active"   depressed v-on="on" height="100%" @click="checkTenders">
                 <v-icon v-if="item.icon" class="blue--text">{{
                   item.icon
                 }}</v-icon>
@@ -115,43 +54,29 @@
                 <v-icon class="blue--text" center>mdi-chevron-down</v-icon>
               </v-btn>
             </template>
-            <v-list>
-            <v-list-group
-              v-for="subItem in item.subMenuItem"
-              :key="subItem.text"
-              v-model="subItem.active"
-              prepend-icon="mdi-bird"
-              no-action
-            >
-              <template v-slot:activator>
-                <v-list-tile  link @click="$router.push({ path: subItem.subLinkItem })">
-                  <v-list-tile-content >
-                  <v-list-tile-title>{{ subItem.text }}</v-list-tile-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-              </template>
-            </v-list-group>
-          </v-list>
-          <!--
-            <v-list dense class="nestedList">
-              <v-list-item-content
-                v-for="subitem in item.subMenuItem"
-                :key="subitem.id"
-                router
-                :to="subitem.subLinkItem"
-                class="active-list-item"
-              >
-                <v-list-item :to="subitem.subLinkItem">
-                  <v-list-item-action>
-                    <v-list-item-title class="activeListItemTitle">
-                      {{ subitem.text }}</v-list-item-title
-                    >
-                  </v-list-item-action>
-                </v-list-item>
-            
-              </v-list-item-content>
+            <v-list  >
+              <v-list-item-group  
+              v-model="model"
+                 active-class="active_submenu">
+                 
+                <div v-for="(oItem, i) in item.subMenuItem" :key="i" >
+                  <v-list-item
+               
+                    no-action
+                    :to="oItem.subLinkItem"
+                  >
+                    <v-list-item-icon>
+                      <v-icon>mdi-bird</v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+                      <v-list-item-title
+                        v-text="oItem.text"
+                      ></v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </div>
+              </v-list-item-group>
             </v-list>
-            -->
           </v-menu>
 
           <v-btn class="btnMainTab" v-else depressed v-on="on" height="100%">
@@ -173,6 +98,7 @@
       </div>
     </v-toolbar>
     <!-- toolbar with mob app     heeeeelp-->
+
     <v-toolbar class="hidden-md-and-up">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
@@ -244,19 +170,17 @@ export default {
   data() {
     return {
       drawer: null,
-    }
+      model: 1,
+    };
   },
-  methods:{
-  
-  },
+  methods: {},
   computed: {
     social_media() {
-      return this.$store.state.social_media
+      return this.$store.state.social_media;
     },
-    menuItems()
-    {
-      return this.$store.state.menuItems
-    }
+    menuItems() {
+      return this.$store.state.menuItems;
+    },
   },
 };
 </script>
@@ -307,12 +231,19 @@ export default {
 .removeTextDecoration {
   text-decoration: none !important;
 }
-.btnTextTab{
+.btnTextTab {
   font-weight: bold;
 }
-.btnMainTab
-{
+.btnMainTab {
   font-weight: bold;
   color: green;
+}
+.bg-active {
+  background-color: black;
+  color: white !important;
+}
+.active_submenu {
+  background: linear-gradient(to left, #003369, #578cb4);
+  color: white !important;
 }
 </style>

@@ -46,10 +46,10 @@
                   }}</v-list-item-subtitle>
                 </v-list-item-content>
 
-                <v-list-item-avatar tile size="80" color="grey">
+                <v-list-item-avatar tile size="80" >
                   <img
                     alt="user"
-                    src="https://cdn.pixabay.com/photo/2020/06/24/19/12/cabbage-5337431_1280.jpg"
+                    src='@/assets/Images/ascww-logo.png'
                 /></v-list-item-avatar>
               </v-list-item>
 
@@ -101,5 +101,3 @@ export default {
   props: ["username"],
 };
 </script>
-<style >
-</style>-->

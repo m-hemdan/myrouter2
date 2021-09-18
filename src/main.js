@@ -11,11 +11,16 @@ import scrollAnimation from './assets/scrollAnimation'
 import * as VueGoogleMaps from 'vue2-google-maps'
 import VueSimpleAlert from "vue-simple-alert";
 import VueResponsiveImage from "vue-responsive-image";
+import VueAnimateOnScroll from 'vue-animate-onscroll'
+import VueExpandableImage from 'vue-expandable-image'
+Vue.use(VueExpandableImage)
 
 Vue.directive('scrollAnimation',scrollAnimation)
 Vue.use(VueSimpleAlert);
 Vue.use(Vuex)
 Vue.use(VueResponsiveImage)
+Vue.use(VueAnimateOnScroll)
+
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyC6N81D44KeKeXUti43nj8IBcun4vbyJ4o',

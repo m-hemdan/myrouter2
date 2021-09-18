@@ -172,8 +172,9 @@
         width="90%"
         align="center"
       ></v-divider>
-      <h1 align="center" class="changeUnderLine" color="">
+      <h1 align="center" class="changeUnderLine"  v-animate-onscroll="'rotate-vert-center'">
         <a href="" class="mb-10">خـدمــتـنـا</a>
+     
       </h1>
       <v-container>
         <v-row justify="center" ma-3
@@ -185,6 +186,7 @@
             <v-row justify="center">
               <router-link :to="itemService.link">
                 <v-card
+               
                   class="cardServiceClass xx"
                   v-bind:style="{
                     'background-image': 'url(' + itemService.img + ') ',
@@ -195,7 +197,7 @@
                 >
                 </v-card>
                 <v-row class="justify-center textBoss"
-                  ><h4>{{ itemService.item }}</h4></v-row
+                  ><h4  >{{ itemService.item }}</h4></v-row
                 >
                 <v-row class="subTextService text-center pa-5" max-width="15em"
                   ><h5>{{ itemService.subText }}</h5></v-row
@@ -211,15 +213,15 @@
         <v-row class="justify-space-around container">
         
           <v-col v-for="item in ourNumbersArr" :key="item.key" cols="12" sm="6" lg="2">      
-            <v-row justify="center"><v-icon color="#578cb4" class="iconNumber">{{item.iconName}}</v-icon></v-row>
-            <v-row justify="center" ><p class="numberSelected" >{{item.numberSelected}}</p></v-row>
-             <v-row justify="center" class="nameSelected">{{item.nameSelected}}</v-row>
+            <v-row justify="center"><v-icon color="#578cb4" class="iconNumber" v-animate-onscroll="'rotate-vert-center'" >{{item.iconName}}</v-icon></v-row>
+            <v-row justify="center" ><p class="numberSelected" v-animate-onscroll.repeat="'fade-in'" >{{item.numberSelected}}</p></v-row>
+             <v-row justify="center" class="nameSelected" >{{item.nameSelected}}</v-row>
           </v-col>
         
         </v-row>
       </v-container>
     </div>
-    <div><router-link to="/aboutTheCompany">---</router-link></div>
+    <div ><router-link to="/aboutTheCompany">---</router-link></div>
   </div>
 </template>
 <script>
@@ -267,7 +269,8 @@ export default {
          {iconName:'mdi-city-variant-outline', numberSelected:'356',nameSelected:' محطات الشرب '},
         {iconName:'mdi-source-branch', numberSelected:'43',nameSelected:' محطات الصرف  '},
       
-      ]
+      ],
+      model:1
     };
   },
   methods: {

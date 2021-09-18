@@ -1,7 +1,9 @@
  <template>
  <div>
 <h2>فيديو عن <span class="green--text">الشركه </span></h2>
-          <iframe
+        <iframe
+          
+          class="mr-5"
             width="300"
             height="200"
             src="https://www.youtube.com/embed/AEz3Xf1bGLQ"
